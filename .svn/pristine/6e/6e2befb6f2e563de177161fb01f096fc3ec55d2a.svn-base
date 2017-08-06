@@ -1,0 +1,118 @@
+package gamestates;
+
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMap;
+
+import systems.*;
+import components.*;
+
+import com.artemis.Entity;
+import com.artemis.EntitySystem;
+import com.artemis.SystemManager;
+import com.artemis.World;
+
+
+public class GameplayState extends BasicGameState
+{
+	private int stateID = 2;
+	private static GameplayState gp;
+	private TiledMap tm;
+	private World world;
+	private Image topHUD;
+	private Image botHUD;
+	
+	private SystemManager systemManager;
+	private	EntitySystem collisionSystem;
+	private EntitySystem cooldownSystem;
+	private EntitySystem hudRenderSystem;
+	private EntitySystem inputSystem;
+	private EntitySystem mapRenderSystem;
+	private EntitySystem physicsSystem;
+	private EntitySystem renderingSystem;
+	private EntitySystem animationRenderSystem;
+	private EntitySystem HUDRenderSystem;
+	
+	public GameplayState(int stateID)
+	{
+		this.stateID = stateID;
+	}
+	
+	public static GameplayState getInstance()
+	{
+		if(gp == null)
+		{
+			gp = new GameplayState(2);
+		}
+		return gp;
+	}
+	
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
+	{ 
+		tm = new TiledMap("Data" + File.separator + "Maps" + File.separator + "start map.tmx");
+		world = new World();
+		systemManager = world.getSystemManager();
+		animationRenderSystem = systemManager.setSystem(new AnimationRenderSystem());
+		inputSystem = systemManager.setSystem(new InputSystem(gc));
+		physicsSystem = systemManager.setSystem(new PhysicsSystem());
+		renderingSystem = systemManager.setSystem(new RenderingSystem());
+		mapRenderSystem = systemManager.setSystem(new MapRenderSystem());
+		HUDRenderSystem = systemManager.setSystem(new HUDRenderSystem());
+		systemManager.initializeAll();
+		Entity player = world.createEntity();
+		Entity map = world.createEntity();
+		
+		player.addComponent(new Stats(100,100,5,5,3,3,3));
+		player.addComponent(new Velocity(0,0,false));
+		player.addComponent(new Position(150,150));
+		player.addComponent(new Player());
+		player.addComponent(new Collides(null));
+		player.addComponent(new Sprite("Data" + File.separator + "Character Sprites" + File.separator + "wizard.png"));
+		
+		player.refresh();
+		
+		map.addComponent(new Collides(null));
+	}
+	
+	public TiledMap getMap()
+	{
+		return tm;
+	}
+	
+	
+
+	@Override
+	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
+	{	// TODO Auto-generated method stub
+		mapRenderSystem.process();
+		renderingSystem.process();
+		HUDRenderSystem.process();
+	}
+
+	@Override
+	public void update(GameContainer gc, StateBasedGame sbg, int delta)	throws SlickException 
+	{
+		
+		
+		world.loopStart();
+		inputSystem.process();
+		physicsSystem.process();
+		world.setDelta(delta);
+		
+		
+	}
+
+	@Override
+	public int getID() {
+		// TODO Auto-generated method stub
+		return stateID;
+	}
+}

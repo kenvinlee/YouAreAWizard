@@ -1,0 +1,54 @@
+package systems;
+import main.MyAnimation;
+
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.Image;
+
+import components.Sprite;
+import components.SpriteSheet;
+import components.Velocity;
+import components.Position;
+
+import com.artemis.Entity;
+import com.artemis.EntityProcessingSystem;
+import com.artemis.ComponentMapper;
+
+public class AnimationRenderSystem extends EntityProcessingSystem{
+	private ComponentMapper<Sprite> sprites;
+	private ComponentMapper<Position> pos;
+	private ComponentMapper<Velocity> vel;
+	private ComponentMapper<SpriteSheet> spriteSheet;
+
+	MyAnimation a;
+	Image[] images;
+
+	public AnimationRenderSystem()
+	{
+		super(SpriteSheet.class);
+	}
+
+	public void initialize()
+	{
+		pos = new ComponentMapper<Position>(Position.class, world);
+		vel = new ComponentMapper<Velocity>(Velocity.class, world);
+		spriteSheet = new ComponentMapper<SpriteSheet>(SpriteSheet.class, world);
+		
+	}
+
+	@Override
+	protected void process(Entity e) 
+	{	
+		images = new Image[spriteSheet.get(e).getImages().size()];
+		
+		a = new MyAnimation(spriteSheet.get(e).getImages().toArray(images), 5);
+		a.start();
+		a.setRotation(pos.get(e).getTheta());
+		
+		if (pos.get(e).isMoving())
+		{
+			a.draw(pos.get(e).getX(),pos.get(e).getY());
+		}
+		
+	}
+
+}

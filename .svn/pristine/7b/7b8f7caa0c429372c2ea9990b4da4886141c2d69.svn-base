@@ -1,0 +1,26 @@
+package systems;
+import com.artemis.EntityProcessingSystem;
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
+import components.Position;
+import components.Velocity;
+
+public class PhysicsSystem extends EntityProcessingSystem{
+	
+	private ComponentMapper<Position> pos;
+	private ComponentMapper<Velocity> vel;
+	
+	public PhysicsSystem()
+	{
+		super(Position.class, Velocity.class);
+	}
+	
+	public void process(Entity e)
+	{
+		pos = new ComponentMapper<Position>(Position.class, world);
+		vel = new ComponentMapper<Velocity>(Velocity.class, world);
+		pos.get(e).addX(vel.get(e).getXComponent());
+		pos.get(e).addY(vel.get(e).getYComponent());
+	}
+
+}

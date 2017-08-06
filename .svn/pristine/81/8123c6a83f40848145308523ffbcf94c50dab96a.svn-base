@@ -1,0 +1,19 @@
+package components;
+import com.artemis.Component;
+import components.*;
+
+//TODO
+
+public class Spell 
+{
+	String spellID;
+	String[] spells;
+	int damage;
+	int buff;
+	
+	public Spell()
+	{
+		
+	}
+	
+}

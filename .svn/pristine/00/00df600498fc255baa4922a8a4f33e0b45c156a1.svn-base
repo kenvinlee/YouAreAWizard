@@ -1,0 +1,28 @@
+package systems;
+
+import components.SpriteSheet;
+import components.Position;
+
+import com.artemis.EntityProcessingSystem;
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
+
+public class AnimationRenderSystem extends EntityProcessingSystem {
+	private ComponentMapper<SpriteSheet> sprites;
+	private ComponentMapper<Position> pos;
+	public AnimationRenderSystem()
+	{
+		super(SpriteSheet.class, Position.class);
+	}
+	
+	public void init()
+	{
+		sprites = new ComponentMapper<SpriteSheet>(SpriteSheet.class, world);
+		pos = new ComponentMapper<Position>(Position.class, world);
+	}
+	
+	public void process(Entity e)
+	{
+		//Logic for drawing animation
+	}
+}

@@ -1,0 +1,13 @@
+package components;
+import com.artemis.Component;
+
+public class Health extends Component
+{
+	private int hp;
+	
+	public Health(int currentHealth)
+	{
+		hp = currentHealth;
+	}
+
+}

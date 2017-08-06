@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="18" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="tileset" tilewidth="40" tileheight="40">
+  <image source="tileset.png" width="280" height="120"/>
+ </tileset>
+ <layer name="base map" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9WTMRaAMAhDQRd1qXr/w8oBTF4Rqjj8kaS/LYuInE5mgDdnNSaSN5rtB/0a7FCSleEfOV+F+2dOT91651D/1/4j0c7+6L+v6s/6I85olmV69y/7TSrsP+rPdr3Lq+z/Vn8zDicoz5uzGxfEtrqqAAkAAA==
+  </data>
+ </layer>
+ <layer name="trees" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9VVQQrAMAgrdDtt/3/veglI0apVNxbwUIomRmpb+w+OEafhvhfxXiNuRod035mI8ALSGRySDi9mHk6bNBOqY4dbmzVqrzTSOl4NWl1a21Kn0gMtv2L+nvzIe7R4vMqL7oJdDzJ6B7weZO9BrweZvVN8tf8BzYeqvmdI/081LzD/L2/1LemI4AEMs9bdAAkAAA==
+  </data>
+ </layer>
+ <layer name="scrolls" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGHxAGAseSPvpDQbKXlz2i0AxPe1HB/R2AzYw6oZRMAoGPxCF4oG0eyDsH0h/Dwb7yQEAXTTBtQAJAAA=
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="18" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <layer name="base map" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGHjAPEB4KNjPSKEd+PRTw/+UuG+whj8jGk2rMBms/qclRg4bfPZTmu4Hq//x2U+Jn3HppWb+p3acDLbwp6VfsZk3mP1PT/vJAdQyEwA0Tc6bAAkAAA==
+  </data>
+ </layer>
+ <layer name="collision layer" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9VUWwrAMAgrY+/3dv/Dzo8VpFTU2tItEPwoLCaYjc65uxInYANsgR2apdADBzTnV38BrmhSsO63AXc0vb7UP7ef98W9p/rn4H1x76H/Wvibfu5+aPWt92HV1yDWhTA/Sp/rkQSxLoT5Ufpcj3LBkn+OjKT6sbvPkZFUX3P3mo6WuH/Nrl/4/x3AK4EUNN84gQ/z8v5OAAkAAA==
+  </data>
+ </layer>
+</map>

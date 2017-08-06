@@ -1,0 +1,65 @@
+package systems;
+import components.Player;
+import components.Velocity;
+import components.Position;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
+import com.artemis.EntityProcessingSystem;
+import com.artemis.Entity;
+import com.artemis.ComponentMapper;
+
+
+
+public class InputSystem extends EntityProcessingSystem{ 	
+	private ComponentMapper<Player> player;
+	private ComponentMapper<Velocity> vel;
+	private ComponentMapper<Position> pos;
+	private GameContainer gc;
+	
+	public InputSystem(GameContainer gc)
+	{
+		super(Player.class, Velocity.class, Position.class);
+		this.gc = gc;
+	}
+	
+	public void initialize()
+	{
+		player = new ComponentMapper<Player>(Player.class, world);
+		vel = new ComponentMapper<Velocity>(Velocity.class, world);
+		pos = new ComponentMapper<Position>(Position.class, world);
+	}
+	
+	public void process(Entity e)
+	{
+		Input input = gc.getInput();
+		vel.get(e).setMagnitude(0);
+		if(input.isKeyDown(Input.KEY_DOWN))
+		{
+			vel.get(e).setMagnitude(0.5f);
+			vel.get(e).setDirection((float)Math.PI/2);
+			pos.get(e).setTheta(180);
+		}
+		
+		if(input.isKeyDown(Input.KEY_UP))
+		{
+			vel.get(e).setMagnitude(0.5f);
+			vel.get(e).setDirection((float)-Math.PI/2);
+			pos.get(e).setTheta(0);
+		}
+		
+		if(input.isKeyDown(Input.KEY_LEFT))
+		{
+			vel.get(e).setMagnitude(0.5f);
+			vel.get(e).setDirection((float)Math.PI);
+			pos.get(e).setTheta(-90);
+		}
+		
+		if(input.isKeyDown(Input.KEY_RIGHT))
+		{
+			vel.get(e).setMagnitude(0.5f);
+			vel.get(e).setDirection(0);
+			pos.get(e).setTheta(90);
+		}
+	}
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="18" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="tileset" tilewidth="40" tileheight="40">
+  <image source="tileset.png" width="280" height="120"/>
+  <tile id="3">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="scroll" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="scroll" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="scroll" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="base" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+NgYGAQGiDMCcRMQMw8QJhrCNjPSEX70M0aCv4fCPsZ0WhKw3mo+Z+WmJFI+6mZ7geT/2llP67wwheOpNpP7TgZzOFPbb9iM28w+59e9vMDsSCJGJd5pJojAMQA5fTZtwAJAAA=
+  </data>
+ </layer>
+ <layer name="trees and rocks" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAXDFbABMfsA2s8LxHwDaP8oGBqAmukUm1mEzIelU2q4A1uaJzYfUNMdlICh7A5auJmUcmy0zBtaAACdXvYAAAkAAA==
+  </data>
+ </layer>
+ <layer name="scrolls" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwUEAYiEUG0H7RAbR7FIyCgQQAzj4KegAJAAA=
+  </data>
+ </layer>
+ <layer name="trees" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAVDFbAAMesAms8NxDw0tJ/W5o8C8gCt0x0hMJoucIPRuBnZYDT+SQMAKqvxcgAJAAA=
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,57 @@
+package systems;
+
+import java.io.File;
+
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+
+import com.artemis.EntityProcessingSystem;
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
+
+import components.Player;
+import components.Stats;
+
+
+public class HUDRenderSystem extends EntityProcessingSystem{
+	private ComponentMapper<Stats> health;
+	private Image top;
+	private Image bot;
+	private Image healthBar; //draw at 435, 29 lower than the y it's drawn at.
+	
+	public HUDRenderSystem() 
+	{
+		super(Player.class, Stats.class);
+	}
+	
+/*
+ * 940x36 coordinate of first spell icon location
+ * 1050x36 coordinate of second spell icon location
+ * 1160x36 coordinate of third spell icon location
+ * */
+	
+	public void initialize()
+	{
+		health = new ComponentMapper<Stats>(Stats.class, world);
+		try {
+			top = new Image("Data" + File.separator + "HUD" + File.separator + "top HUD.png");
+			bot = new Image("Data" + File.separator + "HUD" + File.separator + "bottom HUD.png");
+			healthBar = new Image("Data" + File.separator + "HUD" + File.separator + "health bar.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void process(Entity e)
+	{
+		//Code to draw the sprites for each scroll with number adjacent to it, player's health
+		top.draw(0,0);
+		bot.draw(0, 600);
+		
+		health.get(e).setMaxHP(100);
+		health.get(e).setHP(50);
+		healthBar.draw(435,629,(healthBar.getWidth()*(float)(health.get(e).getHP()/health.get(e).getMaxHP())), healthBar.getHeight());
+		
+	}
+}

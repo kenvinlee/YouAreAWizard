@@ -1,0 +1,77 @@
+package main;
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.*;
+import org.newdawn.slick.tiled.*;
+import com.artemis.*;
+import systems.*;
+import components.*;
+import java.util.ArrayList;
+
+public class Main extends BasicGame{
+	private World world;
+	private SystemManager systemManager;
+	private EntitySystem inputSystem;
+	private EntitySystem renderSystem;
+	private Entity map, player, monster;
+	
+	public Main() {
+		super("Tile Test");
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init(GameContainer gc) throws SlickException
+	{
+		world = new World();
+		systemManager = world.getSystemManager();
+		inputSystem = systemManager.setSystem(new InputSystem(gc));
+		renderSystem = systemManager.setSystem(new RenderingSystem());
+		systemManager.initializeAll();
+		
+		Entity map = world.createEntity();
+		Entity player = world.createEntity();
+		Entity monster = world.createEntity();
+
+		
+		
+		
+	}
+	@Override
+	public void render(GameContainer gc, Graphics g) throws SlickException
+	{
+
+		renderSystem.process();
+		
+	}
+
+
+
+	@Override
+	public void update(GameContainer gc, int delay) throws SlickException {
+		inputSystem.process();
+		
+	}
+	
+	
+	private ArrayList<Shape> convertMap(TiledMap tm)
+	{
+		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		for(int i = 0; i < tm.getHeight(); i++)
+		{
+			for(int j = 0; j < tm.getWidth(); j++)
+			{
+				if(tm.getTileId(i, j, 1) != 0)
+				{
+					shapes.add(new Rectangle(i*tm.getTileHeight(), j * tm.getTileWidth(), tm.getTileHeight(), tm.getTileWidth()));
+				}
+			}
+		}
+		
+		return shapes;
+	}
+
+}

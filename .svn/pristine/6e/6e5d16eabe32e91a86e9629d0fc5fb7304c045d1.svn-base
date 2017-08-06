@@ -1,0 +1,105 @@
+package components;
+import com.artemis.Component;
+import components.*;
+
+//TODO
+
+public class Spell 
+{
+	private final int GHOST = 1;
+	private final int TEMPER = 2;
+	private final int REPLENISH = 3;
+	private final int AGILITY = 4;
+	private final int LIGHTNING = 5;
+	private final int LIGHTNINGSLASH = 6;
+	private final int MELT = 7;
+	private final int CONEOFFIRE = 8; //ANNIERIPOFFSPELL
+	private final int DISINTEGRATE = 9;
+	private final int ORBOFDESTRUCTION = 10;
+	
+	private int spellID;
+	private int damage;
+	private int buff;
+			
+	/*
+	 *1. Ghost – WWL 
+	 *2. Temper - WWF
+	 *3. Replenish – WWW		
+	 *4. Agility – LLW 
+	 *5. Lightning – LLL
+	 *6. Lightning Slash – LLF
+	 *7. Melt - FFW
+	 *8. Cone of Fire – FFF
+	 *9. Disintegrate – FFL
+	 *10. Orb of Destruction - FWL					
+	 */
+	
+	public Spell(int id)
+	{
+		spellID = id;
+		
+		switch(spellID)
+		{
+			case 1: 
+				break;
+			case 2: buff = 3;
+				break;
+			case 3: buff = 4;
+				break;
+			case 4: buff = 5;
+				break;
+			case 5: damage = 30;
+				break;
+			case 6: damage = 50;
+				break;
+			case 7: /*de*/buff = 10;
+				break;
+			case 8: damage = 20;
+				break;
+			case 9: damage/*over time*/ = 10;
+				break;
+			case 10: damage = 40;
+				break;
+		}
+	}
+	
+	public int getSpell()
+	{
+		switch(spellID)
+		{
+			case 1: return GHOST;
+
+			case 2: return TEMPER;
+
+			case 3: return REPLENISH;
+
+			case 4: return AGILITY;
+
+			case 5: return LIGHTNING;
+
+			case 6: return LIGHTNINGSLASH;
+
+			case 7: return MELT;
+
+			case 8: return CONEOFFIRE;
+
+			case 9: return DISINTEGRATE;
+
+			case 10: return ORBOFDESTRUCTION;
+			
+			default: return 0;
+
+		}
+	}
+	
+	public int getDamage()
+	{
+		return damage;
+	}
+	
+	public int getBuff()
+	{
+		return buff;
+	}
+	
+}

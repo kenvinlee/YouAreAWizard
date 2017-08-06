@@ -1,0 +1,26 @@
+package systems;
+import components.Sprite;
+import components.Position;
+
+import com.artemis.Entity;
+import com.artemis.EntityProcessingSystem;
+import com.artemis.ComponentMapper;
+public class RenderingSystem extends EntityProcessingSystem{
+	private ComponentMapper<Sprite> sprites;
+	private ComponentMapper<Position> pos;
+	
+	public RenderingSystem()
+	{
+		super(Sprite.class);
+	}
+
+	@Override
+	protected void process(Entity e) {
+		sprites = new ComponentMapper<Sprite>(Sprite.class, world);
+		pos = new ComponentMapper<Position>(Position.class, world);
+		
+		sprites.get(e).getImage().draw(pos.get(e).getX(), pos.get(e).getY());
+		
+	}
+
+}

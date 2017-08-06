@@ -1,0 +1,13 @@
+package components;
+import com.artemis.Component;
+import components.*;
+
+public class Player extends Component
+{
+	public Player()
+	{
+		
+	}
+	
+	
+}

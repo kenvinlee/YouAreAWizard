@@ -1,0 +1,31 @@
+package systems;
+
+import com.artemis.EntityProcessingSystem;
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
+
+import components.Player;
+import components.Inventory;
+import components.CharacterStats;
+
+
+public class HUDRenderSystem extends EntityProcessingSystem{
+	private ComponentMapper<Inventory> inv;
+	private ComponentMapper<CharacterStats> health;
+	
+	public HUDRenderSystem()
+	{
+		super(Player.class, Inventory.class, CharacterStats.class);
+	}
+	
+	public void initialize()
+	{
+		inv = new ComponentMapper<Inventory>(Inventory.class, world);
+		health = new ComponentMapper<CharacterStats>(CharacterStats.class, world);
+	}
+	
+	public void process(Entity e)
+	{
+		//Code to draw the sprites for each scroll with number adjacent to it, player's health
+	}
+}

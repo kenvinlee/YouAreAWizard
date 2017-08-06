@@ -1,0 +1,39 @@
+package systems;
+
+import gamestates.GameplayState;
+
+import java.io.File;
+
+import org.newdawn.slick.Image;
+import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.SlickException;
+
+import com.artemis.Entity;
+import com.artemis.EntitySystem;
+import com.artemis.utils.ImmutableBag;
+
+public class MapRenderSystem extends EntitySystem{
+	private TiledMap tm;
+	private Image tree;
+	public MapRenderSystem()
+	{
+		super();
+	}
+	
+	public void initialize()
+	{
+		tm = GameplayState.getInstance().getMap();
+	}
+	
+	protected boolean checkProcessing() {
+		return true;
+	}
+
+	protected void processEntities(ImmutableBag<Entity> arg0)
+	{
+		tm.render(0, 0, 0);
+		
+	
+	}
+
+}

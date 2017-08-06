@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="18" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="TILES" tilewidth="40" tileheight="40">
+  <image source="TILES.png" width="160" height="80"/>
+ </tileset>
+ <tileset firstgid="9" name="UPPERTILES" tilewidth="40" tileheight="40">
+  <image source="UPPERTILES.png" width="80" height="80"/>
+  <tile id="0">
+   <properties>
+    <property name="object" value="ROCK"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="object" value="TREE"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWkAFYsmGlAXcTAwDZq/6j9o/YPO/uZgZiDCMxCI/tHwSgY7gAAUK5A6wAJAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="32" height="18" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjgDTAhYRH7R8Fo2AUjIJRMBQBAG3MfoEACQAA
+  </data>
+ </layer>
+</map>

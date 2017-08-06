@@ -1,0 +1,50 @@
+package gamestates;
+
+import java.io.File;
+import org.lwjgl.input.Keyboard;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+
+public class CreditState extends BasicGameState
+{
+	private int stateID = 4;
+	private Image background;
+	private Image credits;
+	
+	public CreditState (int stateID)
+	{
+		this.stateID = stateID;
+	}
+	@Override
+	public void init(GameContainer arg0, StateBasedGame arg1)throws SlickException 
+	{
+		background = new Image("Data" + File.separator + "HUD" + File.separator + "menu art.png");
+		
+	}
+
+	@Override
+	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException 
+	{
+		// TODO Auto-generated method stub
+		background.draw(0,0);
+		
+	}
+
+	@Override
+	public void update(GameContainer arg0, StateBasedGame arg1, int arg2)
+			throws SlickException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getID() {
+		// TODO Auto-generated method stub
+		return this.stateID;
+	}
+
+}

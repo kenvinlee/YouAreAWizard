@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="18" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="tileset" tilewidth="40" tileheight="40">
+  <image source="tileset.png" width="280" height="120"/>
+ </tileset>
+ <layer name="base map" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9WUuw7AIAhFoV1alz79/1+tgyaESAnVaB3OQsw9QqkLAJxGZgFrzhqYWIYTsqW6xFuOj7gB/FjoR5Y1Qv9HI3J3dGRmCN/mgsr5OyL5rfO01kfwY2d/j/7T3rTcf8v/z7+Jdv4i0J5Trcb7o/lpzeKvsX8l/hr9+x/4KTn/Bu32nbMHHkc6oToACQAA
+  </data>
+ </layer>
+ <layer name="additional walls" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGFyAi0Rxapszav/A2y9IJ0wNd1NLfNT+Ufth8qPpf9T+kWo/vQEAkYk9xAAJAAA=
+  </data>
+ </layer>
+ <layer name="scrolls" width="32" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGHlAFIpH7R+Z9g80EIHiUftH7R/OQBgJI/sZJkYP+5HBSLMfvYwdCPuRMb3tJwYAAMv0H6EACQAA
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,28 @@
+package systems;
+
+import gamestates.GameplayState;
+
+import org.newdawn.slick.tiled.TiledMap;
+
+import com.artemis.Entity;
+import com.artemis.EntitySystem;
+import com.artemis.utils.ImmutableBag;
+
+public class MapRenderSystem extends EntitySystem{
+
+	public MapRenderSystem()
+	{
+		super();
+	}
+	
+	protected boolean checkProcessing() {
+		return true;
+	}
+
+	protected void processEntities(ImmutableBag<Entity> arg0)
+	{
+		GameplayState.getInstance().getMap().render(0, 0);
+		
+	}
+
+}

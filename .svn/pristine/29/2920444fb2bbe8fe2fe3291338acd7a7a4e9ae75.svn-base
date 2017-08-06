@@ -1,0 +1,25 @@
+package components;
+
+//TODO Fix this.
+
+public class Cooldown 
+{
+	private int timer;
+	private boolean used;
+	
+	public Cooldown()
+	{
+		used = false;
+	}
+	
+	public void setCD(int CD)
+	{
+		CD = timer;
+	}
+	
+	public void beenUsed()
+	{
+		used = true;
+	}
+	
+}

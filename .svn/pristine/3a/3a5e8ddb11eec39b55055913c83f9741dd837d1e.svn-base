@@ -1,0 +1,7 @@
+package entities;
+import com.artemis.Component;
+
+public class Map extends Component
+{
+
+}

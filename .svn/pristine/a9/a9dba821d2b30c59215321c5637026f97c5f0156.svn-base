@@ -1,0 +1,63 @@
+package systems;
+
+import gamestates.GameplayState;
+
+import java.io.File;
+
+import org.newdawn.slick.Image;
+import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.SlickException;
+
+import com.artemis.ComponentMapper;
+import com.artemis.Entity;
+import com.artemis.EntitySystem;
+import com.artemis.utils.ImmutableBag;
+import components.*;
+
+public class MapRenderSystem extends EntitySystem{
+	private TiledMap tm;
+	private float y;
+	float yShift;
+	private ComponentMapper<Position> pos;
+	private ComponentMapper<Velocity> vel;
+	
+	public MapRenderSystem()
+	{
+		super(Player.class);
+	}
+	
+	public void initialize()
+	{
+		y = 0;
+		yShift = 0;
+		tm = GameplayState.getInstance().getMap();
+		pos = new ComponentMapper(Position.class, world);
+		vel = new ComponentMapper(Velocity.class, world);
+	}
+	
+	protected boolean checkProcessing() {
+		return true;
+	}
+
+	protected void processEntities(ImmutableBag<Entity> e)
+	{
+		//360 is the centre
+		tm.render(0, (int) y);
+		tm.getLayerIndex("trees");
+		
+		
+		if (pos.get(e.get(0)).getY() < 309 || pos.get(e.get(0)).getY() > 309)
+			y -= vel.get(e.get(0)).getYComponent()*10;
+		
+		if(y <= -120)
+		{
+			y = -120;
+		}
+		if (y >= 150)
+		{
+			y = 150;
+		}
+		
+	}
+
+}

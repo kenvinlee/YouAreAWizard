@@ -1,0 +1,21 @@
+package components;
+
+import com.artemis.Component;
+import java.util.*;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+
+public class SpriteSheet extends Component
+{
+	ArrayList<Image> images;
+	//Fill in all of the variables and access methods a spritesheet would need
+	public SpriteSheet(String s) throws SlickException
+	{
+		images.add(new Image(s));
+	}
+	
+	public ArrayList<Image> getImages()
+	{
+		return images;
+	}
+}
